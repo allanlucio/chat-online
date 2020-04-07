@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/chat_screen.dart';
 
 void main(){
   
   runApp(MyApp());
-  Firestore.instance.collection("col").document("doc").setData({"Texto":"daniel"});
+  Firestore.instance.collection("mensagens").document().setData({"Texto":"Allan"});
 } 
 
 class MyApp extends StatelessWidget {
@@ -24,8 +25,9 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        iconTheme: IconThemeData(color: Colors.blue)
       ),
-      home: Container(child: Text("ola",style: TextStyle(color: Colors.white),),),
+      home: ChatScreen()
     );
   }
 }
